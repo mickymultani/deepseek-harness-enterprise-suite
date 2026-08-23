@@ -12,6 +12,14 @@ async function filesBelow(directory) {
   const pending = [directory]
   while (pending.length > 0) {
     const current = pending.pop()
+    if (current !== root) {
+      try {
+        await access(join(current, '.git'))
+        continue
+      } catch {
+        // Continue walking ordinary project directories.
+      }
+    }
     for (const entry of await readdir(current, { withFileTypes: true })) {
       if (ignored.has(entry.name)) continue
       const path = join(current, entry.name)
