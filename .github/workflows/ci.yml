@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         with:
           version: 11.7.0
       - uses: actions/setup-node@v4
@@ -41,7 +41,7 @@ jobs:
           repository: deepseek-ai/deepseek-harness
           ref: b150a551b8d465e31e418e1b2eaf5e79bbb7d28e
           path: deepseek-harness
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         with:
           version: 11.7.0
       - uses: actions/setup-node@v4
