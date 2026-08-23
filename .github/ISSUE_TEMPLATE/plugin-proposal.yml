@@ -1,0 +1,52 @@
+name: Plugin proposal
+description: Propose an enterprise connector, policy, or observability plugin.
+title: '[Plugin]: '
+labels: [plugin, proposal]
+body:
+  - type: input
+    id: system
+    attributes:
+      label: Enterprise system or control
+      placeholder: ServiceNow, OPA, Microsoft Graph, model gateway
+    validations:
+      required: true
+  - type: dropdown
+    id: class
+    attributes:
+      label: Plugin class
+      options:
+        - Connector
+        - Policy
+        - Identity and credentials
+        - Audit and observability
+        - Model gateway
+    validations:
+      required: true
+  - type: textarea
+    id: operations
+    attributes:
+      label: Proposed operations
+      description: Separate read, propose, write, and control-plane capabilities.
+    validations:
+      required: true
+  - type: textarea
+    id: authorization
+    attributes:
+      label: Authorization and identity model
+      description: Describe scopes, delegated identity, service identity, allowlists, and approval requirements.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Security and data risks
+      description: Cover prompt injection, data leakage, credentials, excessive permissions, and auditability.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Test strategy
+      description: Describe mocks, contract tests, sandbox testing, and live verification.
+    validations:
+      required: true

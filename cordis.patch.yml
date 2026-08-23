@@ -1,0 +1,27 @@
+- insert:
+    - id: enterprise-atlassian
+      name: dsh-enterprise-suite/atlassian
+      config:
+        mode: mock
+        baseUrl: https://example.atlassian.net
+        authMode: basic
+        tokenRef: ATLASSIAN_API_TOKEN
+        emailRef: ATLASSIAN_EMAIL
+        requestTimeoutMs: 30000
+        maxResponseBytes: 2000000
+        allowInsecureHttp: false
+
+    - id: enterprise-policy
+      name: dsh-enterprise-suite/policy
+      config:
+        mode: enforce
+        allowedJiraProjects: [ENG, SEC]
+        allowedConfluenceSpaces: [ENG, SEC]
+        protectedToolPrefixes: [jira_, confluence_]
+        requireApprovalForWrites: true
+
+    - id: enterprise-audit
+      name: dsh-enterprise-suite/audit
+      config:
+        path: !!js dshHomePath('audit/enterprise-tools.jsonl')
+        includeArguments: false

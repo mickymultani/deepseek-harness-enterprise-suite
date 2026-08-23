@@ -1,0 +1,104 @@
+{
+  "name": "dsh-enterprise-suite",
+  "version": "0.1.0",
+  "description": "Open-source enterprise plugins, governance controls, and connector templates for DeepSeek Harness",
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh-plugin",
+    "enterprise-ai",
+    "atlassian",
+    "jira",
+    "confluence",
+    "governance"
+  ],
+  "homepage": "https://github.com/mickymultani/deepseek-harness-enterprise-suite#readme",
+  "bugs": {
+    "url": "https://github.com/mickymultani/deepseek-harness-enterprise-suite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mickymultani/deepseek-harness-enterprise-suite.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "packageManager": "pnpm@11.7.0",
+  "exports": {
+    ".": "./src/index.js",
+    "./atlassian": "./src/plugins/atlassian.js",
+    "./policy": "./src/plugins/policy.js",
+    "./audit": "./src/plugins/audit.js",
+    "./plugin-kit": "./src/plugin-kit.js"
+  },
+  "bin": {
+    "create-dsh-enterprise-plugin": "./bin/create-plugin.js"
+  },
+  "files": [
+    "bin",
+    "catalog",
+    "docs",
+    "examples",
+    "scripts",
+    "src",
+    "templates",
+    "test",
+    "cordis.patch.yml",
+    "ARCHITECTURE.md",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "GOVERNANCE.md",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md",
+    "ROADMAP.md",
+    "SUPPORT.md",
+    "SECURITY.md"
+  ],
+  "scripts": {
+    "check": "node ./scripts/check.js",
+    "demo": "node ./examples/demo.js",
+    "test": "node --test ./test/*.test.js",
+    "test:integration": "node ./scripts/test-dsh-install.js",
+    "prepack": "pnpm run check && pnpm test"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-credentials": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-tools": "^0.1.1-rc.2"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-credentials": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-credentials": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-credentials-local": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-llm": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-system-prompt": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-tools": "^0.1.1-rc.2"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mickymultani/deepseek-harness-enterprise-suite/catalog/plugin.schema.json",
+  "title": "Enterprise plugin catalog",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "name", "category", "status", "phase", "risk", "description"],
+    "properties": {
+      "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]+$" },
+      "name": { "type": "string", "minLength": 1 },
+      "category": {
+        "enum": ["foundation", "knowledge", "work-management", "engineering", "security-operations", "infrastructure", "business-controls"]
+      },
+      "status": { "enum": ["available", "foundation", "planned"] },
+      "phase": { "type": "string", "pattern": "^0\\.[1-5]|1\\.0$" },
+      "risk": { "enum": ["read", "propose", "write", "control-plane"] },
+      "description": { "type": "string", "minLength": 10 }
+    }
+  }
+}
